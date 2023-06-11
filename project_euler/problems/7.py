@@ -1,6 +1,8 @@
 from . import usage
 
 def solution():
+    # PyPy ~ 7 ms
+
     pn = 10_001
     
     n = 110_000

@@ -1,13 +1,11 @@
-import numpy as np
-
 from . import usage
 
 def solution():
-    s = np.arange(0, 1000, 3).sum()
-    s += np.arange(0, 1000, 5).sum()
-    s -= np.arange(0, 1000, 15).sum()
+    # PyPy ~ 14 µs
 
-    return s
+    return (sum(range(0, 1000, 3))+
+            sum(range(0, 1000, 5))-
+            sum(range(0, 1000, 15)))
 
 if __name__ == '__main__':
     usage.usage(solution)

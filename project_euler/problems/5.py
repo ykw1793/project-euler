@@ -1,6 +1,8 @@
 from . import usage
 
 def solution():
+    # PyPy ~ 15 µs
+
     done = []
     p = 1    
     for i in range(2,21):

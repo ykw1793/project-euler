@@ -1,6 +1,8 @@
 from . import usage
 
 def solution():
+    # PyPy ~ 4 µs
+
     s = 2
     f0, f1 = 1, 2
     while f1 <= 4_000_000:

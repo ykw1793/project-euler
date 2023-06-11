@@ -1,7 +1,7 @@
 from . import usage
 
 def solution():
-    # Using loops ~ 15 µs ~ O(n)
+    # Using loops ~ 4 µs
 
     # sqs = 0
     # s = 0
@@ -10,7 +10,7 @@ def solution():
     #     sqs += i*i
     # d = s*s-sqs
     
-    # Using closed expressions ~ 700 ns ~ O(1)
+    # Using closed expressions ~ 1.2 µs
 
     n = 100
     sqs = n * (n+1) * (2*n+1) // 6

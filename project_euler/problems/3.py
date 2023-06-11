@@ -1,6 +1,8 @@
 from . import usage
 
 def solution():
+    # PyPy ~ 18 µs
+
     n = 600_851_475_143
 
     i = 2

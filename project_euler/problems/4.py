@@ -1,7 +1,7 @@
 from . import usage
 
 def solution():
-    # Time ~ 190 ms
+    # Time ~ 45 ms
 
     # m = 0
     # for i in range(100, 1000):
@@ -12,7 +12,7 @@ def solution():
 
     # ------------------------------
 
-    # Time (get palindromes) ~ 1.4 ms
+    # PyPy (get palindromes) ~ 650 µs
 
     p = []
     for i in range(10, 100):
@@ -24,7 +24,7 @@ def solution():
         n = i * 1000 + int(str(i)[::-1])
         p.append(n)
 
-    # Time (total) with below loop ~ 140 ms
+    # PyPy ~ 13 ms
 
     # m = 0
     # for n in p:
@@ -35,7 +35,7 @@ def solution():
     #                 m = max(m, n)
     
 
-    # Time (total) with below loop ~ 80 ms
+    # PyPy ~ 6 ms
 
     m = 0
     for n in p:
