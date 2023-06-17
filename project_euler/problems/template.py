@@ -4,4 +4,4 @@ def solution():
     pass
 
 if __name__ == '__main__':
-    usage.usage(solution)
+    usage.usage(solution, n=1)
