@@ -1,7 +1,7 @@
 from . import usage
 
 def solution():
-    # PyPy ~ 23 ms
+    # PyPy ~ 38 µs
 
     s = '''75
     95 64
@@ -18,37 +18,15 @@ def solution():
     91 71 52 38 17 14 91 43 58 50 27 29 48
     63 66 04 68 89 53 67 30 73 16 69 87 40 31
     04 62 98 27 23 09 70 98 73 93 38 53 60 04 23'''
-
-    num_lines = len(s.split('\n'))
     
-    s = s.replace('\n', ' ').replace('    ', '')
-    s = [int(x) for x in s.split()]
+    s = s.split('\n')
+    s = [[int(x) for x in y.split()] for y in s]
 
-    class BinTree:
-        def __init__(self, v, l=None, r=None):
-            self.v = v
-            self.l = l
-            self.r = r
-
-    def create_tree(idx, ln):
-        lidx = idx + ln + 1
-        ridx = lidx + 1
-
-        if lidx >= len(s):
-            return BinTree(s[idx])
-        else:
-            return BinTree(s[idx], create_tree(lidx, ln+1), create_tree(ridx, ln+1))
-        
-    root = create_tree(0, 0)
-
-    def max_path_sum(root: BinTree):
-        if root.l is None and root.r is None:
-            return root.v
-        l = max_path_sum(root.l)
-        r = max_path_sum(root.r)
-        return max(l, r) + root.v
+    for i in range(len(s[-1])-2,-1,-1):
+        for j in range(i+1):
+            s[i][j] += max(s[i+1][j], s[i+1][j+1])
     
-    return max_path_sum(root)
+    return s[0][0]
 
 if __name__ == '__main__':
-    usage.usage(solution, n=20)
+    usage.usage(solution, n=1000)
