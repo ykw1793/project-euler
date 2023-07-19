@@ -22,10 +22,9 @@ def solution():
     def resolve(lst):
         f = set([lst[0]])
         for i in range(1, len(lst)):
-            f.add(lst[i])
             t = lst[i]
-            f0 = fac[t[0]]
-            f1 = fac[t[1]]
+            f.add(t)
+            f0, f1 = fac[t[0]], fac[t[1]]
             if len(f0) > 1 and len(f1) > 1:
                 for tf0 in f0:
                     for tf1 in f1:
@@ -45,12 +44,9 @@ def solution():
                 if n % i == 0:
                     t = (i, n//i)
                     f.append(t)
-        f = resolve(f)
-        fac[n] = f
+        fac[n] = resolve(f)
 
     klst = set(range(2, lim + 1))
-    kdict = {}
-    kdict_lst = {}
 
     minlst = set()
     i = 1
@@ -61,13 +57,10 @@ def solution():
         for l in fac[i]:
             if len(l) == 1:
                 continue
-            s = sum(l)
-            p = math.prod(l)
+            s, p = sum(l), math.prod(l)
             k = p-s+len(l)
             if k in klst and k not in tbr:
                 minlst.add(p)
-                kdict[k] = p
-                kdict_lst[k] = l
                 tbr.add(k)
         for v in tbr:
             klst.remove(v)
